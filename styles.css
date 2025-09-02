@@ -618,21 +618,25 @@ section {
         top: 80px;
         left: 0;
         right: 0;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        border-radius: 0 0 20px 20px;
-        box-shadow: 0 8px 32px rgba(6, 182, 212, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 0 0 25px 25px;
+        box-shadow: 
+            0 10px 40px rgba(6, 182, 212, 0.2),
+            0 4px 20px rgba(34, 197, 94, 0.1);
         flex-direction: column;
-        padding: 2rem;
-        gap: 1.5rem;
+        padding: 2.5rem 2rem 2rem;
+        gap: 1rem;
         transform: translateY(-100%);
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1002;
+        max-height: 70vh;
+        overflow-y: auto;
     }
     
     .nav-links.mobile-active {
@@ -640,21 +644,49 @@ section {
         opacity: 1;
         visibility: visible;
         pointer-events: all;
+        animation: slideInDown 0.4s ease-out;
     }
     
     .nav-links a {
-        padding: 0.75rem 1rem;
-        border-radius: 10px;
+        padding: 1rem 1.5rem;
+        border-radius: 15px;
         text-align: center;
-        background: rgba(255, 255, 255, 0.6);
-        border: 1px solid rgba(6, 182, 212, 0.2);
-        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(6, 182, 212, 0.3);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        margin: 0.25rem 0;
+    }
+    
+    .nav-links a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(5, 150, 105, 0.1), transparent);
+        transition: left 0.5s ease;
     }
     
     .nav-links a:hover {
-        background: rgba(5, 150, 105, 0.1);
-        border-color: rgba(5, 150, 105, 0.4);
-        transform: translateY(-2px);
+        background: rgba(5, 150, 105, 0.15);
+        border-color: rgba(5, 150, 105, 0.5);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 6px 20px rgba(5, 150, 105, 0.2);
+        color: #047857;
+    }
+    
+    .nav-links a:hover::before {
+        left: 100%;
+    }
+    
+    .nav-links a:active {
+        transform: translateY(-1px) scale(1);
+        transition: transform 0.1s ease;
     }
     
     .hamburger {
@@ -664,22 +696,46 @@ section {
     }
     
     .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-        background: #059669;
+        transform: rotate(45deg) translate(6px, 6px);
+        background: linear-gradient(45deg, #059669, #0891b2);
     }
     
     .hamburger.active span:nth-child(2) {
         opacity: 0;
+        transform: scale(0);
     }
     
     .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-        background: #059669;
+        transform: rotate(-45deg) translate(6px, -6px);
+        background: linear-gradient(45deg, #059669, #0891b2);
     }
     
     .mobile-menu-open {
         overflow: hidden;
     }
+    
+    /* Mobile menu animations */
+    @keyframes slideInDown {
+        from {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    /* Add staggered animation to menu items */
+    .nav-links.mobile-active a {
+        animation: fadeInUp 0.4s ease-out backwards;
+    }
+    
+    .nav-links.mobile-active a:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links.mobile-active a:nth-child(2) { animation-delay: 0.15s; }
+    .nav-links.mobile-active a:nth-child(3) { animation-delay: 0.2s; }
+    .nav-links.mobile-active a:nth-child(4) { animation-delay: 0.25s; }
+    .nav-links.mobile-active a:nth-child(5) { animation-delay: 0.3s; }
     
     .hero-content {
         grid-template-columns: 1fr;

@@ -71,33 +71,66 @@ function initMobileMenu() {
     const navContainer = document.querySelector('.nav-container');
     
     if (hamburger && navLinks) {
-        hamburger.addEventListener('click', function() {
+        // Toggle mobile menu
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             this.classList.toggle('active');
             navLinks.classList.toggle('mobile-active');
             navContainer.classList.toggle('mobile-menu-open');
             document.body.classList.toggle('mobile-menu-open');
+            
+            // Update aria attributes for accessibility
+            const isOpen = this.classList.contains('active');
+            this.setAttribute('aria-expanded', isOpen);
+            navLinks.setAttribute('aria-hidden', !isOpen);
         });
 
         // Close mobile menu when clicking on a link
         const mobileNavLinks = navLinks.querySelectorAll('a');
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('mobile-active');
-                navContainer.classList.remove('mobile-menu-open');
-                document.body.classList.remove('mobile-menu-open');
+                closeMobileMenu();
             });
         });
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(e) {
-            if (!navContainer.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('mobile-active');
-                navContainer.classList.remove('mobile-menu-open');
-                document.body.classList.remove('mobile-menu-open');
+            if (!navContainer.contains(e.target) && navLinks.classList.contains('mobile-active')) {
+                closeMobileMenu();
             }
         });
+        
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('mobile-active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close mobile menu on window resize (when switching to desktop)
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && navLinks.classList.contains('mobile-active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Function to close mobile menu
+        function closeMobileMenu() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('mobile-active');
+            navContainer.classList.remove('mobile-menu-open');
+            document.body.classList.remove('mobile-menu-open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            navLinks.setAttribute('aria-hidden', 'true');
+        }
+
+        // Initialize accessibility attributes
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-controls', 'nav-links');
+        hamburger.setAttribute('aria-label', 'Toggle navigation menu');
+        navLinks.setAttribute('aria-hidden', 'true');
+        navLinks.setAttribute('id', 'nav-links');
     }
 }
 
@@ -384,43 +417,6 @@ style.textContent = `
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
-    }
-    
-    .mobile-menu-open {
-        overflow: hidden;
-    }
-    
-    @media (max-width: 768px) {
-        .nav-links {
-            position: fixed;
-            top: 80px;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            flex-direction: column;
-            padding: 2rem;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-            z-index: 999;
-        }
-        
-        .nav-links.mobile-active {
-            transform: translateX(0);
-        }
-        
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
     }
 `;
 

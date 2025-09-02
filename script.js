@@ -78,64 +78,87 @@ function initMobileMenu() {
     });
     
     if (hamburger && navLinks) {
+        let isMenuOpen = false;
+        
         // Toggle mobile menu
         hamburger.addEventListener('click', function(e) {
             console.log('🍔 Hamburger clicked!');
             e.preventDefault();
             e.stopPropagation();
-            this.classList.toggle('active');
-            navLinks.classList.toggle('mobile-active');
-            console.log('📱 Menu toggled. Classes:', {
-                hamburgerActive: this.classList.contains('active'),
-                menuActive: navLinks.classList.contains('mobile-active')
-            });
-            navContainer.classList.toggle('mobile-menu-open');
-            document.body.classList.toggle('mobile-menu-open');
             
-            // Update aria attributes for accessibility
-            const isOpen = this.classList.contains('active');
-            this.setAttribute('aria-expanded', isOpen);
-            navLinks.setAttribute('aria-hidden', !isOpen);
-        });
-
-        // Close mobile menu when clicking on a link
-        const mobileNavLinks = navLinks.querySelectorAll('a');
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                closeMobileMenu();
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!navContainer.contains(e.target) && navLinks.classList.contains('mobile-active')) {
-                closeMobileMenu();
-            }
-        });
-        
-        // Close mobile menu on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && navLinks.classList.contains('mobile-active')) {
-                closeMobileMenu();
+            isMenuOpen = !isMenuOpen;
+            
+            if (isMenuOpen) {
+                openMenu();
+            } else {
+                closeMenu();
             }
         });
 
-        // Close mobile menu on window resize (when switching to desktop)
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768 && navLinks.classList.contains('mobile-active')) {
-                closeMobileMenu();
-            }
-        });
+        // Function to open menu
+        function openMenu() {
+            console.log('📂 Opening menu...');
+            isMenuOpen = true;
+            hamburger.classList.add('active');
+            navLinks.classList.add('mobile-active');
+            navContainer.classList.add('mobile-menu-open');
+            document.body.classList.add('mobile-menu-open');
+            hamburger.setAttribute('aria-expanded', 'true');
+            navLinks.setAttribute('aria-hidden', 'false');
+            
+            // Add click outside listener after menu opens
+            setTimeout(() => {
+                document.addEventListener('click', handleClickOutside);
+            }, 300); // Wait for animation to complete
+        }
 
-        // Function to close mobile menu
-        function closeMobileMenu() {
+        // Function to close menu
+        function closeMenu() {
+            console.log('🔒 Closing menu...');
+            isMenuOpen = false;
             hamburger.classList.remove('active');
             navLinks.classList.remove('mobile-active');
             navContainer.classList.remove('mobile-menu-open');
             document.body.classList.remove('mobile-menu-open');
             hamburger.setAttribute('aria-expanded', 'false');
             navLinks.setAttribute('aria-hidden', 'true');
+            
+            // Remove click outside listener
+            document.removeEventListener('click', handleClickOutside);
         }
+
+        // Handle click outside
+        function handleClickOutside(e) {
+            if (!navContainer.contains(e.target) && isMenuOpen) {
+                console.log('👆 Clicked outside menu, closing...');
+                closeMenu();
+            }
+        }
+
+        // Close mobile menu when clicking on a link
+        const mobileNavLinks = navLinks.querySelectorAll('a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('🔗 Nav link clicked, closing menu...');
+                closeMenu();
+            });
+        });
+        
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isMenuOpen) {
+                console.log('⌨️ Escape pressed, closing menu...');
+                closeMenu();
+            }
+        });
+
+        // Close mobile menu on window resize (when switching to desktop)
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && isMenuOpen) {
+                console.log('🖥️ Resized to desktop, closing menu...');
+                closeMenu();
+            }
+        });
 
         // Initialize accessibility attributes
         hamburger.setAttribute('aria-expanded', 'false');

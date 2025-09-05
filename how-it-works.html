@@ -23,9 +23,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             gap: 1rem;
             margin: 2rem 0;
+            overflow-x: auto;
         }
         
         .process-step {
@@ -86,16 +87,17 @@
                 grid-template-columns: 1fr;
             }
             
-            .process-flow {
-                flex-direction: column;
+            .process-step {
+                min-width: 180px;
+                font-size: 0.9rem;
             }
             
-            .process-step:not(:last-child)::after {
-                content: '↓';
-                right: 50%;
-                bottom: -2rem;
-                top: auto;
-                transform: translateX(50%);
+            .process-step h4 {
+                font-size: 1rem;
+            }
+            
+            .process-step p {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -109,7 +111,6 @@
             </div>
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="index.html#features">Features</a>
                 <a href="how-it-works.html" class="active">How It Works</a>
                 <a href="index.html#about">About</a>
                 <a href="index.html#contact">Contact</a>
@@ -350,7 +351,7 @@
                         </svg>
                     </div>
                     <h3>Ethical AI</h3>
-                    <p>Our deepfake technology is used responsibly - only for educational purposes, with user consent, and includes watermarks to prevent misuse.</p>
+                    <p>Our deepfake technology is used responsibly - only for educational purposes, with user consent, and strict privacy controls to prevent misuse.</p>
                 </div>
             </div>
 
@@ -369,68 +370,11 @@
                         <h4 style="color: #1e293b; margin-bottom: 0.5rem;">User Consent</h4>
                         <p style="color: #64748b;">Clear consent process with opt-out options available at any time.</p>
                     </div>
-                    <div>
-                        <h4 style="color: #1e293b; margin-bottom: 0.5rem;">Watermarked Content</h4>
-                        <p style="color: #64748b;">All generated content includes visible watermarks for authenticity.</p>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technical Implementation -->
-    <section id="technical-details" style="padding: 6rem 0;">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Technical Implementation</h2>
-                <p class="section-subtitle">
-                    The advanced technology stack powering our speech learning platform
-                </p>
-            </div>
-
-            <div class="features-grid">
-                <div class="glass-card feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="3" y="3" width="7" height="7" rx="1" fill="white"/>
-                            <rect x="14" y="3" width="7" height="7" rx="1" fill="white"/>
-                            <rect x="14" y="14" width="7" height="7" rx="1" fill="white"/>
-                            <rect x="3" y="14" width="7" height="7" rx="1" fill="white"/>
-                        </svg>
-                    </div>
-                    <h3>Neural Networks</h3>
-                    <p><strong>Transformers:</strong> GPT-based models for language understanding<br/>
-                    <strong>CNNs:</strong> Computer vision for facial analysis<br/>
-                    <strong>RNNs:</strong> Sequential audio processing</p>
-                </div>
-                
-                <div class="glass-card feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14 2H6C4.89 2 4 2.89 4 4V20C4 21.11 4.89 22 6 22H18C19.11 22 20 21.11 20 20V8L14 2Z" fill="white"/>
-                            <path d="M14 2V8H20" stroke="#059669" stroke-width="2" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Data Processing</h3>
-                    <p><strong>Audio:</strong> 16kHz sampling, noise reduction<br/>
-                    <strong>Images:</strong> 512x512 facial crops, landmark detection<br/>
-                    <strong>Text:</strong> Phoneme alignment and timing</p>
-                </div>
-                
-                <div class="glass-card feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22S22 17.52 22 12S17.52 2 12 2ZM17 13H13V17H11V13H7V11H11V7H13V11H17V13Z" fill="white"/>
-                        </svg>
-                    </div>
-                    <h3>Real-time Performance</h3>
-                    <p><strong>Latency:</strong> < 200ms for feedback generation<br/>
-                    <strong>Quality:</strong> 95% accuracy in speech recognition<br/>
-                    <strong>Scalability:</strong> GPU acceleration for processing</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Call to Action -->
     <section style="padding: 6rem 0; background: rgba(5, 150, 105, 0.1);">
@@ -442,7 +386,7 @@
                 </p>
                 <div class="hero-buttons">
                     <button class="btn-primary" onclick="window.location.href='index.html#contact'">Download App</button>
-                    <button class="btn-secondary" onclick="window.location.href='index.html#features'">Learn More</button>
+                    <button class="btn-secondary" onclick="window.location.href='index.html#about'">Learn More</button>
                 </div>
             </div>
         </div>
@@ -462,8 +406,8 @@
                     <ul>
                         <li><a href="#llm-technology">LLM Processing</a></li>
                         <li><a href="#deepfake-technology">Lip Simulation</a></li>
-                        <li><a href="#technical-details">Implementation</a></li>
-                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html">Main Site</a></li>
                     </ul>
                 </div>
                 

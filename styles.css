@@ -406,14 +406,72 @@ section {
 /* How It Works Section */
 .steps-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+}
+
+/* Responsive grid for steps */
+@media (max-width: 1200px) {
+    .steps-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .steps-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 }
 
 .step-card {
     padding: 2rem;
     text-align: center;
     position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Add connecting lines between steps (desktop only) */
+@media (min-width: 1201px) {
+    .step-card:not(:last-child)::after {
+        content: '→';
+        position: absolute;
+        right: -2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        color: rgba(5, 150, 105, 0.3);
+        z-index: 1;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .step-card:nth-child(odd):not(:nth-child(3))::after {
+        content: '→';
+        position: absolute;
+        right: -3rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        color: rgba(5, 150, 105, 0.3);
+        z-index: 1;
+    }
+    
+    .step-card:nth-child(2)::after {
+        content: '↓';
+        position: absolute;
+        bottom: -1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.5rem;
+        color: rgba(5, 150, 105, 0.3);
+        z-index: 1;
+    }
 }
 
 .step-number {
@@ -774,9 +832,6 @@ section {
         grid-template-columns: 1fr;
     }
     
-    .steps-container {
-        grid-template-columns: 1fr;
-    }
     
     .stats-grid {
         grid-template-columns: 1fr;

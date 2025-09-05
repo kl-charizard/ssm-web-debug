@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - Sound by Sound Slowly</title>
+    <meta name="description" content="Discover the advanced AI technology behind Sound by Sound Slowly - from LLM-powered speech coaching to deepfake lip movement simulation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles for technical diagrams */
+        .tech-diagram {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .process-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .process-step {
+            background: linear-gradient(45deg, #059669, #0891b2);
+            border-radius: 15px;
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+            min-width: 200px;
+            position: relative;
+        }
+        
+        .process-step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: rgba(5, 150, 105, 0.6);
+        }
+        
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .comparison-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .traditional {
+            border-left: 4px solid #dc2626;
+        }
+        
+        .our-approach {
+            border-left: 4px solid #059669;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-flow {
+                flex-direction: column;
+            }
+            
+            .process-step:not(:last-child)::after {
+                content: '↓';
+                right: 50%;
+                bottom: -2rem;
+                top: auto;
+                transform: translateX(50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <div class="logo">
+                <h2><a href="index.html" style="text-decoration: none; color: inherit;">Sound by Sound Slowly</a></h2>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#features">Features</a>
+                <a href="how-it-works.html" class="active">How It Works</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 80vh;">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        
+        <div class="container">
+            <div class="glass-card hero-card" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h1 class="hero-title" style="font-size: 3rem;">
+                    The Science Behind
+                    <span class="highlight">Sound by Sound Slowly</span>
+                </h1>
+                <p class="hero-description">
+                    Discover how cutting-edge AI technologies work together to revolutionize speech learning for the hearing-impaired community through LLM-powered coaching and advanced deepfake lip simulation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LLM Technology Section -->
+    <section id="llm-technology" style="padding: 6rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🤖 AI-Powered Speech Coaching</h2>
+                <p class="section-subtitle">
+                    How Large Language Models provide personalized, intelligent feedback for speech development
+                </p>
+            </div>
+
+            <div class="tech-diagram">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #1e293b;">LLM Processing Pipeline</h3>
+                <div class="process-flow">
+                    <div class="process-step">
+                        <div class="tech-icon">🎤</div>
+                        <h4>Audio Input</h4>
+                        <p>User speaks into microphone</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="tech-icon">🔄</div>
+                        <h4>Speech-to-Text</h4>
+                        <p>Convert audio to text using ASR</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="tech-icon">🧠</div>
+                        <h4>LLM Analysis</h4>
+                        <p>AI analyzes pronunciation & grammar</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="tech-icon">📝</div>
+                        <h4>Feedback Generation</h4>
+                        <p>Personalized coaching response</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L13.09 8.26L16 6.5L14.64 10.64L20 8L17.5 12L22 14L16.64 16.36L18 20.5L14.09 15.74L12 22L9.91 15.74L6 20.5L7.36 16.36L2 14L7.5 12L5 8L10.36 10.64L8 6.5L10.91 8.26L12 2Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3>Contextual Understanding</h3>
+                    <p>Our LLM understands not just words, but context, emotion, and learning progress to provide relevant feedback tailored to each user's journey.</p>
+                </div>
+                
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3>Real-time Adaptation</h3>
+                    <p>The AI continuously learns from your progress, adapting difficulty levels and teaching strategies to match your improving skills.</p>
+                </div>
+                
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Multi-Modal Learning</h3>
+                    <p>Combines audio analysis, visual cues, and text feedback to create a comprehensive learning experience that addresses different learning styles.</p>
+                </div>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-card traditional">
+                    <h3 style="color: #dc2626;">❌ Traditional Methods</h3>
+                    <ul style="text-align: left; color: #64748b;">
+                        <li>Generic, one-size-fits-all feedback</li>
+                        <li>Limited availability of human coaches</li>
+                        <li>Slow adaptation to individual progress</li>
+                        <li>High cost and scheduling constraints</li>
+                        <li>Inconsistent teaching quality</li>
+                    </ul>
+                </div>
+                <div class="comparison-card our-approach">
+                    <h3 style="color: #059669;">✅ Our AI Approach</h3>
+                    <ul style="text-align: left; color: #64748b;">
+                        <li>Personalized feedback for each user</li>
+                        <li>Available 24/7 with instant responses</li>
+                        <li>Continuous learning and improvement</li>
+                        <li>Affordable and accessible to all</li>
+                        <li>Consistent, research-backed methodology</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deepfake Technology Section -->
+    <section id="deepfake-technology" style="padding: 6rem 0; background: rgba(255, 255, 255, 0.3);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">👄 AI Lip Movement Simulation</h2>
+                <p class="section-subtitle">
+                    Advanced deepfake technology creates personalized lip movement demonstrations using your own face
+                </p>
+            </div>
+
+            <div class="tech-diagram">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #1e293b;">FaceFusion Processing Pipeline</h3>
+                <div class="process-flow">
+                    <div class="process-step">
+                        <div class="tech-icon">📸</div>
+                        <h4>Selfie Upload</h4>
+                        <p>User uploads a clear selfie photo</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="tech-icon">🔍</div>
+                        <h4>Face Detection</h4>
+                        <p>AI identifies facial landmarks & features</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="tech-icon">🎭</div>
+                        <h4>3D Modeling</h4>
+                        <p>Create 3D facial model from photo</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="tech-icon">📱</div>
+                        <h4>Lip Synthesis</h4>
+                        <p>Generate realistic lip movements</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="white" stroke-width="1.5"/>
+                            <circle cx="9" cy="9" r="1.5" fill="white"/>
+                            <circle cx="15" cy="9" r="1.5" fill="white"/>
+                            <path d="M8 14S10 16 12 16S16 14 16 14" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Personalized Experience</h3>
+                    <p>See yourself speaking correctly! Using your own face makes learning more engaging and helps with self-recognition and confidence building.</p>
+                </div>
+                
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8Z" stroke="white" stroke-width="1.5"/>
+                            <path d="M7 8L17 8" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M7 12L17 12" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M7 16L12 16" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Precise Articulation</h3>
+                    <p>Advanced AI models capture subtle lip, tongue, and jaw movements to demonstrate the exact articulation needed for each phoneme and word.</p>
+                </div>
+                
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3>Ethical AI</h3>
+                    <p>Our deepfake technology is used responsibly - only for educational purposes, with user consent, and includes watermarks to prevent misuse.</p>
+                </div>
+            </div>
+
+            <div class="glass-card" style="padding: 3rem; margin: 3rem 0; text-align: center;">
+                <h3 style="color: #059669; margin-bottom: 1.5rem;">🔒 Privacy & Security</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: left;">
+                    <div>
+                        <h4 style="color: #1e293b; margin-bottom: 0.5rem;">📱 Local Processing</h4>
+                        <p style="color: #64748b;">Facial analysis happens on your device - your photos never leave your phone.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #1e293b; margin-bottom: 0.5rem;">🗑️ Automatic Deletion</h4>
+                        <p style="color: #64748b;">Generated models are automatically deleted after each session.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #1e293b; margin-bottom: 0.5rem;">✅ User Consent</h4>
+                        <p style="color: #64748b;">Clear consent process with opt-out options available at any time.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #1e293b; margin-bottom: 0.5rem;">🏷️ Watermarked Content</h4>
+                        <p style="color: #64748b;">All generated content includes visible watermarks for authenticity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Implementation -->
+    <section id="technical-details" style="padding: 6rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">⚙️ Technical Implementation</h2>
+                <p class="section-subtitle">
+                    The advanced technology stack powering our speech learning platform
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="7" height="7" rx="1" fill="white"/>
+                            <rect x="14" y="3" width="7" height="7" rx="1" fill="white"/>
+                            <rect x="14" y="14" width="7" height="7" rx="1" fill="white"/>
+                            <rect x="3" y="14" width="7" height="7" rx="1" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3>Neural Networks</h3>
+                    <p><strong>Transformers:</strong> GPT-based models for language understanding<br/>
+                    <strong>CNNs:</strong> Computer vision for facial analysis<br/>
+                    <strong>RNNs:</strong> Sequential audio processing</p>
+                </div>
+                
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C4.89 2 4 2.89 4 4V20C4 21.11 4.89 22 6 22H18C19.11 22 20 21.11 20 20V8L14 2Z" fill="white"/>
+                            <path d="M14 2V8H20" stroke="#059669" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Data Processing</h3>
+                    <p><strong>Audio:</strong> 16kHz sampling, noise reduction<br/>
+                    <strong>Images:</strong> 512x512 facial crops, landmark detection<br/>
+                    <strong>Text:</strong> Phoneme alignment and timing</p>
+                </div>
+                
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22S22 17.52 22 12S17.52 2 12 2ZM17 13H13V17H11V13H7V11H11V7H13V11H17V13Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3>Real-time Performance</h3>
+                    <p><strong>Latency:</strong> < 200ms for feedback generation<br/>
+                    <strong>Quality:</strong> 95% accuracy in speech recognition<br/>
+                    <strong>Scalability:</strong> GPU acceleration for processing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="padding: 6rem 0; background: rgba(5, 150, 105, 0.1);">
+        <div class="container">
+            <div class="glass-card" style="padding: 3rem; text-align: center; max-width: 600px; margin: 0 auto;">
+                <h2 style="margin-bottom: 1rem; color: #1e293b;">Ready to Experience the Future?</h2>
+                <p style="margin-bottom: 2rem; color: #64748b;">
+                    Try Sound by Sound Slowly and discover how AI can revolutionize your speech learning journey.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="window.location.href='index.html#contact'">Download App</button>
+                    <button class="btn-secondary" onclick="window.location.href='index.html#features'">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sound by Sound Slowly</h3>
+                    <p>Empowering speech learning through AI technology</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Technology</h4>
+                    <ul>
+                        <li><a href="#llm-technology">LLM Processing</a></li>
+                        <li><a href="#deepfake-technology">Lip Simulation</a></li>
+                        <li><a href="#technical-details">Implementation</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">User Stories</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Social Media</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sound by Sound Slowly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -34,9 +34,9 @@
             padding: 1.5rem;
             color: white;
             text-align: center;
-            min-width: 200px;
-            width: 200px;
-            height: 160px;
+            min-width: 240px;
+            width: 240px;
+            height: 200px;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -79,10 +79,20 @@
         
         /* Desktop (large screens) */
         @media (min-width: 1200px) {
+            .process-flow {
+                gap: 1.5rem;
+            }
+            
+            .process-step {
+                width: 260px;
+                height: 220px;
+                padding: 2rem;
+            }
+            
             .process-step:not(:last-child)::after {
                 content: '→';
                 position: absolute;
-                right: -2rem;
+                right: -2.5rem;
                 top: 50%;
                 transform: translateY(-50%);
                 font-size: 2rem;
@@ -100,9 +110,10 @@
             }
             
             .process-step {
-                width: 180px;
-                height: 140px;
+                width: 220px;
+                height: 180px;
                 margin: 0.5rem;
+                padding: 1.8rem;
             }
         }
         

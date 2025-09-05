@@ -353,16 +353,31 @@ section {
     overflow: hidden;
 }
 
-.feature-icon::before {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
+/* SVG Icon Styling */
+.feature-icon svg {
+    width: 50px;
+    height: 50px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.2));
 }
 
-.icon-ai-response::before { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>'); }
+.feature-card:hover .feature-icon svg {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.3));
+}
+
+/* Individual icon animations */
+.icon-ai-response {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.icon-lip-movement {
+    animation: bounce 3s ease-in-out infinite;
+}
+
+.icon-scoring {
+    animation: glow 2.5s ease-in-out infinite;
+}
 
 .feature-card h3 {
     font-size: 1.5rem;
@@ -854,6 +869,39 @@ a:focus {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Feature icon animations */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.2));
+    }
+    50% {
+        filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 12px rgba(5, 150, 105, 0.3));
     }
 }
 
